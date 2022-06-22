@@ -1,0 +1,3 @@
+[submodule "CooperFryeSampler"]
+	path = CooperFryeSampler
+	url = git@github.com:vlvovch/CooperFryeSampler.git

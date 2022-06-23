@@ -3,13 +3,14 @@
 <!ENTITY energy "39">
 <!ENTITY hypersurface_energy "AuAu.39">
 <!ENTITY hypersurface_name "surface_eps_0.26.dat">
+<!ENTITY input_sample "input.AuAu.7.7.C0-5">
 <!ENTITY nevents "50000">
 <!ENTITY out_path "/gpfs01/star/pwg/dneff/data/CooperFrye/CooperFrye/">
 ]>
 <job simulateSubmission="false" nProcesses="20">
   
   <command>
-      /star/u/dneff/Software/python3/Python-3.7.3/python run_cfsampler.py &hypersurface_name; &nevents; &hypersurface_energy;
+      /star/u/dneff/Software/python3/Python-3.7.3/python run_cfsampler.py &hypersurface_name; &nevents; &hypersurface_energy; &input_sample;
   </command>
   
   <ResourceUsage>
@@ -28,8 +29,8 @@
     <Package>
       <File>file:/star/u/dneff/git/CooperFryeSamplerRunner/CooperFryeSampler/build/CooperFryeSampler</File>
       <File>file:/star/u/dneff/git/CooperFryeSamplerRunner/CooperFryeSampler/CFSampleRootConvert.cpp</File>
-      <File>file:/star/u/dneff/git/CooperFryeSamplerRunner/CooperFryeSampler/input/input.AuAu.7.7.C0-5</File>
-      <File>file:/star/u/dneff/git/CooperFryeSamplerRunner/CooperFryeSampler/build/hydro/&hypersurface_energy;/C0-5/&hypersurface_name;</File>
+      <File>file:/star/u/dneff/git/CooperFryeSamplerRunner/CooperFryeSampler/input/&input_sample;</File>
+      <File>file:/star/u/dneff/git/CooperFryeSamplerRunner/CooperFryeSampler/input/hydro/&hypersurface_energy;/C0-5/&hypersurface_name;</File>
       <File>file:/star/u/dneff/git/QGP_Scripts/CooperFryeSampler/run_cfsampler.py</File>
     </Package>
   </SandBox>

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <!DOCTYPE note [
-<!ENTITY energy "27">
-<!ENTITY hypersurface_energy "AuAu.27">
+<!ENTITY energy "62">
+<!ENTITY hypersurface_energy "AuAu.62.4">
 <!ENTITY hypersurface_name "surface_eps_0.26.dat">
-<!ENTITY input_sample "input.AuAu.7.7.C0-5.EVHRG">
+<!ENTITY input_sample "input.AuAu.7.7.C0-5.EVHRG_b342">
 <!ENTITY nevents "50000">
-<!ENTITY out_path "/gpfs01/star/pwg/dneff/data/CooperFrye/CooperFrye_protons/">
+<!ENTITY out_path "/gpfs01/star/pwg/dneff/data/CooperFrye/CooperFrye_b342_protons/">
 ]>
 <job simulateSubmission="false" nProcesses="200">
   
@@ -15,12 +15,12 @@
   
   <ResourceUsage>
   	<Memory>
-  		<MinMemory>11000</MinMemory>
-  		<MaxMemory>13000</MaxMemory>
+  		<MinMemory>13000</MinMemory>
+  		<MaxMemory>15000</MaxMemory>
   	</Memory>
   	<StorageSpace>
-  		<MinStorage>13000</MinStorage>
-  		<MaxStorage>16000</MaxStorage>
+  		<MinStorage>19000</MinStorage>
+  		<MaxStorage>21000</MaxStorage>
   	</StorageSpace>
   </ResourceUsage>
 
@@ -41,9 +41,9 @@
     <output fromScratch="*.root" toURL="file:&out_path;output/&energy;GeV/" />
  
   <Generator>
-    <Location>/gpfs01/star/pwg/dneff/data/CooperFrye/CooperFrye_protons/log/27GeV/</Location>
-    <ScriptLocation>/gpfs01/star/pwg/dneff/data/CooperFrye/CooperFrye_protons/script/27GeV/</ScriptLocation>
-    <ListLocation>/gpfs01/star/pwg/dneff/data/CooperFrye/CooperFrye_protons/list/27GeV/</ListLocation>
+    <Location>/gpfs01/star/pwg/dneff/data/CooperFrye/CooperFrye_b342_protons/log/62GeV/</Location>
+    <ScriptLocation>/gpfs01/star/pwg/dneff/data/CooperFrye/CooperFrye_b342_protons/script/62GeV/</ScriptLocation>
+    <ListLocation>/gpfs01/star/pwg/dneff/data/CooperFrye/CooperFrye_b342_protons/list/62GeV/</ListLocation>
   </Generator>
   
 </job>

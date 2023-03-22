@@ -131,7 +131,7 @@ void CFSampleRootConvert(string in_file_path, string out_file_path) {
 			}
 
 			// Record particle track if proton within STAR acceptance. Only record protons to save space. --> Now record anti-protons as well
-			if (fabs(pid) == proton_pid && eta <= eta_max && pt >= pt_min_cut && pt <= pt_max_cut) {
+			if (fabs(pid) == proton_pid && fabs(eta) <= eta_max && pt >= pt_min_cut && pt <= pt_max_cut) {
 				px_vec.push_back(px);
 				py_vec.push_back(py);
 				pz_vec.push_back(pz);

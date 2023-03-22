@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE note [
+<!ENTITY energy "7">
+<!ENTITY hypersurface_energy "AuAu.7.7">
+<!ENTITY hypersurface_name "surface_eps_0.26.dat">
+<!ENTITY input_sample "input.AuAu.7.7.C0-5.EVHRG">
+<!ENTITY nevents "5000">
+<!ENTITY out_path "/gpfs01/star/pwg/dneff/data/CooperFrye/CooperFrye_protons_test/">
+]>
+<job simulateSubmission="false" nProcesses="1">
+  
+  <command>
+      /star/u/dneff/Software/python3/Python-3.7.3/python run_cfsampler.py &hypersurface_name; &nevents; &hypersurface_energy; &input_sample;
+  </command>
+  
+  <ResourceUsage>
+  	<Memory>
+  		<MinMemory>7000</MinMemory>
+  		<MaxMemory>9000</MaxMemory>
+  	</Memory>
+  	<StorageSpace>
+  		<MinStorage>6000</MinStorage>
+  		<MaxStorage>8000</MaxStorage>
+  	</StorageSpace>
+  </ResourceUsage>
+
+  
+  <SandBox>
+    <Package>
+      <File>file:/star/u/dneff/git/CooperFryeSamplerRunner/CooperFryeSampler/build/CooperFryeSampler</File>
+      <File>file:/star/u/dneff/git/CooperFryeSamplerRunner/CFSampleRootConvert.cpp</File>
+      <File>file:/star/u/dneff/git/CooperFryeSamplerRunner/CooperFryeSampler/input/&input_sample;</File>
+      <File>file:/star/u/dneff/git/CooperFryeSamplerRunner/CooperFryeSampler/input/hydro/&hypersurface_energy;/C0-5/&hypersurface_name;</File>
+      <File>file:/star/u/dneff/git/QGP_Scripts/CooperFryeSampler/run_cfsampler.py</File>
+    </Package>
+  </SandBox>
+
+  <stderr URL="file:&out_path;log/&energy;GeV/err_&energy;GeV$JOBID.err"></stderr>
+  <stdout URL="file:&out_path;log/&energy;GeV/log_&energy;GeV$JOBID.out" />
+
+    <output fromScratch="*.root" toURL="file:&out_path;output/&energy;GeV/" />
+ 
+  <Generator>
+    <Location>/gpfs01/star/pwg/dneff/data/CooperFrye/CooperFrye_protons_test/log/7GeV/</Location>
+    <ScriptLocation>/gpfs01/star/pwg/dneff/data/CooperFrye/CooperFrye_protons_test/script/7GeV/</ScriptLocation>
+    <ListLocation>/gpfs01/star/pwg/dneff/data/CooperFrye/CooperFrye_protons_test/list/7GeV/</ListLocation>
+  </Generator>
+  
+</job>

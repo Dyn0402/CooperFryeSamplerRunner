@@ -1,0 +1,7 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/CooperFryeSamplerRunner/v17
+/.vs/CooperFryeSamplerRunner/FileContentIndex
+/.vs/slnx.sqlite

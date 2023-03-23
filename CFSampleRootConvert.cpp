@@ -15,7 +15,7 @@ using namespace std;
 vector<string> split(string main, char delim = ' ');
 
 
-void CFSampleRootConvert(string in_file_path, string out_file_path) {
+void CFSampleRootConvert(string in_file_path, string out_file_path, bool save_all_particles=false) {
 	// PDG Database
 	TDatabasePDG *db = new TDatabasePDG();
 	TParticlePDG *p_info = new TParticlePDG();
@@ -97,6 +97,13 @@ void CFSampleRootConvert(string in_file_path, string out_file_path) {
 			pz = stof(line_vec[4]);
 			mass = sqrt(p0*p0 - px*px - py*py - pz*pz);
 
+			if (save_all_particles) {
+				px_vec.push_back(px);
+				py_vec.push_back(py);
+				pz_vec.push_back(pz);
+				pid_vec.push_back(pid);
+			}
+
 			p_info = db->GetParticle((int)pid);
 			if(!p_info) { cout << "pid: " << pid << " not in TDatabasePDG" << endl; continue; }
 			else if(p_info->Mass() * 1+mass_qa_percent/100 < mass || p_info->Mass() * 1-mass_qa_percent/100 > mass) {
@@ -130,8 +137,8 @@ void CFSampleRootConvert(string in_file_path, string out_file_path) {
 				qx += cos(2*phi); qy += sin(2*phi);
 			}
 
-			// Record particle track if proton within STAR acceptance. Only record protons to save space. --> Now record anti-protons as well
-			if (fabs(pid) == proton_pid && fabs(eta) <= eta_max && pt >= pt_min_cut && pt <= pt_max_cut) {
+			// Record particle track if proton within STAR acceptance. Only record protons and anti-protons to save space if not save_all_particles
+			if (!save_all_particles && fabs(pid) == proton_pid && fabs(eta) <= eta_max && pt >= pt_min_cut && pt <= pt_max_cut) {
 				px_vec.push_back(px);
 				py_vec.push_back(py);
 				pz_vec.push_back(pz);
